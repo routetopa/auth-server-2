@@ -1,8 +1,10 @@
 @extends( 'layouts.master' )
 
-@section( 'main' )
+@section( 'title', 'Reset password' )
 
-    <h1>Forgot password</h1>
+@section( 'heading', 'Forgot password' )
+
+@section( 'main' )
 
     @include( 'errors.summary' )
 
@@ -21,11 +23,11 @@
                         {{ csrf_field() }}
                         @row
                             @col( s12 input-field )
-                                {!! MForm::input( 'email', 'E-mail', 'validate' ) !!}
+                                {!! MForm::input( 'email' )->label( 'E-mail' ) !!}
                             @endcol
                         @endrow
-                        @row( right-align )
-                            @col( s12 )
+                        @row
+                            @col( s12 right-align )
                                 {!! MForm::submit( 'Reset' ) !!}
                             @endcol
                         @endrow
