@@ -64,12 +64,12 @@ class CreateOauth2Tables extends Migration
             $table->increments( 'id' );
             $table->string( 'username', 255 );
             $table->string( 'password' );
-            $table->string( 'first_name', 255 );
-            $table->string( 'last_name', 255 );
+            $table->string( 'first_name', 255 )->default( '' );
+            $table->string( 'last_name', 255 )->default( '' );
             $table->string( 'email' )->unique();
-            $table->string( 'roles' );
+            $table->string( 'roles' )->default( '' );
             $table->boolean( 'is_banned' )->default(false);
-            $table->timestamp( 'last_login_at' );
+            $table->timestamp( 'last_login_at' )->nullable();
 
             $table->rememberToken();
             $table->timestamps();

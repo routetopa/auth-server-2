@@ -26,6 +26,9 @@ class OAuth2ServiceProvider extends ServiceProvider
     {
         // Binds the 'username' field of User to its 'id'.
         // This will make Laravel/Oauth integration easier.
+	    User::creating( function( $user ) {
+		    $user->username = $user->email;
+	    } );
         User::created( function( $user ) {
             $user->username = "rtpa::user::{$user->id}";
             $user->save();

@@ -24,13 +24,13 @@
                         {{ csrf_field() }}
                         @row
                             @col( s12 input-field )
-                                {!! MForm::input( 'email', 'E-mail', 'validate' ) !!}
+                                {!! MForm::input( 'email' )->label( 'E-mail' )->value( old( 'email' ) ) !!}
                             @endcol
                             @col( s12 input-field )
-                                {!! MForm::password( 'password', 'Choose a password', 'validate' ) !!}
+                                {!! MForm::password( 'password' )->label( 'Choose a password' ) !!}
                             @endcol
                             @col( s12 input-field )
-                                {!! MForm::password( 'password_confirmation', 'Confirm password', 'validate' ) !!}
+                                {!! MForm::password( 'password_confirmation' )->label( 'Confirm password' ) !!}
                             @endcol
                         @endrow
                         @row( right-align )
