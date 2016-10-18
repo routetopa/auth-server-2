@@ -49,6 +49,12 @@
 @endrow
 
 @row
+    @col( s12 )
+        {!! MForm::checkbox( 'auto_authorize' )->label( 'Automatically authorize this client' )->checked( $client->auto_authorize )->ghost( 0 ) !!}
+    @endcol
+@endrow
+
+@row
     @col( s12 right-align )
         {!! MForm::submit( 'Save' ) !!}
     @endcol

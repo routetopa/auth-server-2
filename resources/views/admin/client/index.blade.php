@@ -22,6 +22,7 @@
                 <thead>
                     <tr>
                         <th data-field="client_id">Client Id</th>
+                        <th data-field="auto_authorize">Auto auth</th>
                         <th data-field="client_secret">Title</th>
                         <th data-field="grant_types">Grant types</th>
                         <th data-field="scope">Scope</th>
@@ -33,6 +34,11 @@
                 @foreach( $clients as $client )
                     <tr>
                         <td>{{ $client->client_id }}</td>
+                        <td>
+                            @if ( $client->auto_authorize )
+                                <i class="material-icons green-text" title="Yes">done</i>
+                            @endif
+                        </td>
                         <td>{{ $client->title }}</td>
                         <td>{{ $client->grant_types }}</td>
                         <td>{{ $client->scope }}</td>

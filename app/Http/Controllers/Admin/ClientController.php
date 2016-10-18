@@ -53,6 +53,7 @@ class ClientController extends Controller
 	    $client->title = $request->get( 'title' );
 	    $client->home_uri = $request->get( 'home_uri' );
 	    $client->init_oauth_uri = $request->get( 'init_oauth_uri' );
+	    $client->auto_authorize = $request->get( 'auto_authorize' );
 
         $client->save();
 
@@ -72,6 +73,7 @@ class ClientController extends Controller
 	    $client->title = $request->get( 'title' );
 	    $client->home_uri = $request->get( 'home_uri' );
 	    $client->init_oauth_uri = $request->get( 'init_oauth_uri' );
+	    $client->auto_authorize = $request->get( 'auto_authorize' );
 
         $client->save();
 

@@ -23,6 +23,7 @@ class CreateOauth2Tables extends Migration
 	        $table->string( 'title' );
 	        $table->string( 'home_uri', 200 );
 	        $table->string( 'init_oauth_uri', 2000 );
+	        $table->boolean( 'auto_authorize' )->default( 0 );
 
             $table->timestamps();
             $table->primary( 'client_id' );

@@ -37,9 +37,12 @@ class OAuth2Controller extends Controller
 			return $response;
 		}
 
+		$oauthClient = Client::find( $request->query( 'client_id', null ) );
+
 		// display an authorization form
-		if ( empty( $_POST ) ) {
-			$oauthClient = Client::find( $request->query( 'client_id', null ) );
+		// skip authorization if requesting client is set on auto_authorize
+		if ( empty( $_POST ) && ! $oauthClient->auto_authorize )
+		{
 			$scope = Scope::find( $request->query( 'scope', null ) );
 
 			return view( 'oauth2.authorize' )
@@ -49,7 +52,7 @@ class OAuth2Controller extends Controller
 		}
 
 		// print the authorization code if the user has authorized your client
-		$is_authorized = ( $_POST['authorized'] === 'yes' );
+		$is_authorized = ( $request->get( 'authorized' ) === 'yes' ) || $oauthClient->auto_authorize;
 		$server->handleAuthorizeRequest( $request, $response, $is_authorized, Auth::user()->username );
 
 		return $response;
