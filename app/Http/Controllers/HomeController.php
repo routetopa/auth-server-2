@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Http\Requests;
 
 /**
@@ -28,6 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view( 'home.index' );
+    	$clients = Client::all();
+
+        return view( 'home.index' )
+	        ->withClients( $clients );
     }
 }

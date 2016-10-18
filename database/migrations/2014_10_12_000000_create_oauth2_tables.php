@@ -20,6 +20,9 @@ class CreateOauth2Tables extends Migration
             $table->string( 'grant_types', 80 )->nullable();
             $table->string( 'scope', 100 )->nullable();
             $table->string( 'user_id', 80 )->nullable();
+	        $table->string( 'title' );
+	        $table->string( 'home_uri', 200 );
+	        $table->string( 'init_oauth_uri', 2000 );
 
             $table->timestamps();
             $table->primary( 'client_id' );

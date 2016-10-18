@@ -34,6 +34,21 @@
 @endrow
 
 @row
+    @col( s12 input-field )
+        {!! MForm::input( 'title' )->label( 'Title' )->value( $client->title ) !!}
+    @endcol
+@endrow
+
+@row
+    @col( s6 input-field )
+        {!! MForm::input( 'home_uri' )->label( 'Home URI' )->value( $client->home_uri ) !!}
+    @endcol
+    @col( s6 input-field )
+        {!! MForm::input( 'init_oauth_uri' )->label( 'Initialize OAuth flow URI' )->value( $client->init_oauth_uri ) !!}
+    @endcol
+@endrow
+
+@row
     @col( s12 right-align )
         {!! MForm::submit( 'Save' ) !!}
     @endcol

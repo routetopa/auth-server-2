@@ -22,8 +22,7 @@
                 <thead>
                     <tr>
                         <th data-field="client_id">Client Id</th>
-                        <th data-field="client_secret">Secret</th>
-                        <th data-field="redirect_uri">Redirect URI</th>
+                        <th data-field="client_secret">Title</th>
                         <th data-field="grant_types">Grant types</th>
                         <th data-field="scope">Scope</th>
                         <th data-field="user_id">User Id</th>
@@ -34,8 +33,7 @@
                 @foreach( $clients as $client )
                     <tr>
                         <td>{{ $client->client_id }}</td>
-                        <td>{{ $client->client_secret }}</td>
-                        <td>{{ $client->redirect_uri }}</td>
+                        <td>{{ $client->title }}</td>
                         <td>{{ $client->grant_types }}</td>
                         <td>{{ $client->scope }}</td>
                         <td>{{ $client->user_id }}</td>

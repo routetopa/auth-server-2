@@ -15,8 +15,8 @@
 
             @row
                 @col( s12 )
-                    Hi <b>{{ $user->email  }}</b>,
-                    <br>do you want to authorize <b>{{ $client->client_id }}</b> to <b>{{ $scope->scope }}</b>?
+                    Hi <b>{{ $user->email }}</b>,
+                    <br>do you want to authorize <b>{{ $client->title ?: $client->id }}</b> to <b>{{ $scope->scope }}</b>?
                 @endcol
             @endrow
 

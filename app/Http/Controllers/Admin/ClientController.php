@@ -50,6 +50,9 @@ class ClientController extends Controller
 	    $client->grant_types = $request->get( 'grant_types' );
 	    $client->scope = $request->get( 'scope' );
 	    $client->user_id = $request->get( 'user_id' );
+	    $client->title = $request->get( 'title' );
+	    $client->home_uri = $request->get( 'home_uri' );
+	    $client->init_oauth_uri = $request->get( 'init_oauth_uri' );
 
         $client->save();
 
@@ -66,6 +69,9 @@ class ClientController extends Controller
 	    $client->grant_types = $request->get( 'grant_types' );
 	    $client->scope = $request->get( 'scope' );
 	    $client->user_id = $request->get( 'user_id' );
+	    $client->title = $request->get( 'title' );
+	    $client->home_uri = $request->get( 'home_uri' );
+	    $client->init_oauth_uri = $request->get( 'init_oauth_uri' );
 
         $client->save();
 
