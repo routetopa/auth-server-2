@@ -80,7 +80,7 @@ class CreateOauth2Tables extends Migration
         });
 
         Schema::create( 'oauth_scopes', function( Blueprint $table ) {
-            $table->text( 'scope' )->primary();
+            $table->text( 'scope' );
             $table->boolean( 'is_default' );
 
             $table->timestamps();
