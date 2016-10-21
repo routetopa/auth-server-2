@@ -48,7 +48,6 @@ class UserController extends Controller
         }
 
         $user = new User;
-        $user->name = $request->get( 'email' );
         $user->email = $request->get( 'email' );
         $user->is_banned = $request->get( 'is_banned' );
         $user->password = bcrypt( $request->get( 'password' ) );
