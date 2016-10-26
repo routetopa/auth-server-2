@@ -19,4 +19,4 @@ if (! empty($outroLines)) {
 }
 
 echo 'Regards,', "\n";
-echo App\Setting::find( 'instance_title' )->value, "\n";
+echo setting( 'instance_title' ), "\n";
