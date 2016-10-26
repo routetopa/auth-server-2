@@ -88,6 +88,27 @@ a virtual host and using an alias.
     
 Please note that the /oauth2 path is the same specified as alias.
 
+## Configuration
+
+Go to the URL where you installed the webapp and login with credentials you set during installation.
+
+Go to **Administration > Scopes**. A scope is a way to define a set of operations that a client is allowed to perform.
+Click the *Add* button and fill the form:
+  - Scope: **authenticate**
+  - Default: **yes**
+
+Go to **Administration > Clients**. A client is a website or application that can use the authentication server.
+Click the *Add* button and fill the form:
+  - Client Id: the same client id that you will use in the authentication client (e.g.: **spod**)
+  - Client secret: a value that the client will use to authenticate itself (e.g. a random string, hard to guess)
+  - Redirect URI: the OAuth redirect URI (it depends on the OAuth2 Client implementation)
+  - Grant types: **authorization_code**
+  - Scope: **authenticate** (the same created earlier)
+  - Initialize OAuth flow URI: the URL that starts the authentication flow client-side (e.g. the login URL for the
+  client) 
+
+You leave other fields blank.
+
 ## License
 
 The software is licensed under MIT License.
