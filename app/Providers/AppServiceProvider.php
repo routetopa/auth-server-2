@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Setting;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use LucaVicidomini\BladeMaterialize\BladeExtender;
 
@@ -15,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         BladeExtender::extend();
+
+	    Setting::saved( function( $setting ) {
+		    $setting->purge();
+	    } );
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * A setting that can be customized by an administrator.
@@ -35,4 +36,29 @@ class Setting extends Model
      */
     public $incrementing = false;
 
+	/**
+	 * Retrieve a setting from cache.
+	 *
+	 * @param $key
+	 *
+	 * @return mixed
+	 */
+	public static function retrieve( $key )
+	{
+		return Cache::remember(
+			"settings.{$key}",
+			10000, // 1 week
+			function() use( $key ) { return self::find( $key )->value; } );
+	}
+
+	/**
+	 * Remove this setting from the cache.
+	 */
+	public function purge()
+	{
+		if ( $this->key )
+		{
+			Cache::forget( "settings.{$this->key}" );
+		}
+	}
 }

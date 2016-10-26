@@ -12,7 +12,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="{{ url( '/' ) }}" class="brand-logo">ROUTE-TO-PA</a>
+                <a href="{{ url( '/' ) }}" class="brand-logo">{{ setting( 'instance_title' ) }}</a>
                 <ul id="nav-mobile" class="right">
                     @if ( Auth::check() )
                         @include( 'layouts.menu-user' )
