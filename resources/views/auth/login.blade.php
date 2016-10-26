@@ -44,6 +44,7 @@
         @endcol
 
         @col( s5 )
+        @if ( setting( 'registration_open' ) )
             <div class="card green lighten-4">
                 <div class="card-content">
                     <span class="card-title green-text">
@@ -58,6 +59,7 @@
                     <a href="{{ url('/register') }}">Register now</a>
                 </div>
             </div>
+        @endif
             <div class="card blue-grey lighten-4">
                 <div class="card-content">
                     <span class="card-title blue-grey-text">

@@ -20,7 +20,9 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers {
+	    showRegistrationForm as traitShowRegistrationForm;
+    }
 
     /**
      * Where to redirect users after login / registration.
@@ -66,4 +68,21 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+	/**
+	 * Show the application registration form.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function showRegistrationForm()
+	{
+		if ( setting( 'registration_open' ) )
+		{
+			return $this->traitShowRegistrationForm();
+		}
+		else
+		{
+			return view( 'auth.register_closed' );
+		}
+	}
 }

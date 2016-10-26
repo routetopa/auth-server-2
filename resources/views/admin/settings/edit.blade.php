@@ -21,7 +21,8 @@
     @row
         @col( s12 )
             {!! MForm::checkbox( 'settings_registration_open', $settings->get( 'registration_open' )->value )
-                ->label( trans( 'settings.registration_open.label' ) ) !!}
+                ->label( trans( 'settings.registration_open.label' ) )
+                ->ghost( 0 ) !!}
         @endcol
     @endrow
 
