@@ -2,16 +2,6 @@
 
 /*
 |------------------------------------------------------------------------------
-| Guest routes
-|------------------------------------------------------------------------------
-|
-| These routes are accessible to everyone, even non-logged users.
-|
-*/
-Route::get( '/', 'HomeController@index' )->name( 'home' );
-
-/*
-|------------------------------------------------------------------------------
 | OAuth routes
 |------------------------------------------------------------------------------
 |
@@ -19,7 +9,7 @@ Route::get( '/', 'HomeController@index' )->name( 'home' );
 | OAuth2 / OpenIDConnect flows.
 |
 */
-Route::group( [ 'prefix' => 'oauth' ], function() {
+Route::group( [ 'prefix' => 'oauth', 'middleware' => [ 'auth', 'verified' ] ], function() {
     Route::any( 'authorize', 'OAuth2Controller@auth' )->middleware( 'auth' );
     Route::post( 'token', 'OAuth2Controller@token' );
     Route::get( 'v1/userinfo', 'OAuth2Controller@userinfo' );
@@ -34,6 +24,8 @@ Route::group( [ 'prefix' => 'oauth' ], function() {
 | new user registration and password reset.
 |
 */
+Route::get ( 'register/sent', 'Auth\RegisterController@showValidationSent' );
+Route::post( 'register/send', 'Auth\RegisterController@sendValidation' );
 Route::auth();
 
 /*
@@ -44,8 +36,9 @@ Route::auth();
 | These routes are only accessible to logged-in users.
 |
 */
-Route::group( [ 'middleware' => 'auth' ], function() {
+Route::group( [ 'middleware' => [ 'auth', 'verified' ] ], function() {
     Route::get( 'profile', 'ProfileController@edit' );
+	Route::get( '/', 'HomeController@index' )->name( 'home' );
 } );
 
 /*

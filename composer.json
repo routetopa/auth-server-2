@@ -11,6 +11,7 @@
         "laravel/framework": "5.3.*",
         "bshaffer/oauth2-server-php": "^1.8",
         "bshaffer/oauth2-server-httpfoundation-bridge": "^1.1",
+        "jrean/laravel-user-verification": "^3.0",
         "lucavicidomini/blade-materialize": "dev-master"
     },
     "require-dev": {

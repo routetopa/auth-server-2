@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\EmailVerification;
+use App\Notifications\UserVerificationNotification;
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
+use Validator;
+
+use Jrean\UserVerification\Traits\VerifiesUsers;
+use Jrean\UserVerification\Facades\UserVerification;
 
 class RegisterController extends Controller
 {
@@ -24,12 +31,28 @@ class RegisterController extends Controller
 	    showRegistrationForm as traitShowRegistrationForm;
     }
 
+    use VerifiesUsers;
+
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
     protected $redirectTo = '/';
+
+	/**
+	 * Name of the view returned by the getVerificationError method.
+	 *
+	 * @var string
+	 */
+	protected $verificationErrorView = 'auth.register.error';
+
+	/**
+	 * name of the users table.
+	 *
+	 * @var string
+	 */
+	protected $userTable = 'oauth_users';
 
     /**
      * Create a new controller instance.
@@ -38,7 +61,23 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+	    // Normally, this controller is accessible only by guest user, but we let
+	    // actions 'showValidationSent' and 'sendValidation' accessible to registered
+	    // but not verified users
+        $this->middleware( 'guest' )->except(
+	        [ 'showValidationSent', 'sendValidation' ]
+        );
+
+	    $this->middleware( function( $request, $next ) {
+		    if ( Auth::user()->verified )
+		    {
+			    return redirect( $this->redirectIfVerified() );
+		    }
+
+		    return $next($request);
+	    } )->only(
+		    [ 'showValidationSent', 'sendValidation' ]
+	    );
     }
 
     /**
@@ -84,5 +123,47 @@ class RegisterController extends Controller
 		{
 			return view( 'auth.register_closed' );
 		}
+	}
+
+	/**
+	 * Handle a registration request for the application.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function register(Request $request)
+	{
+		$this->validator( $request->all() )->validate();
+
+		$user = $this->create( $request->all() );
+		$this->guard()->login( $user );
+
+		return $this->sendValidation();
+	}
+
+	/**
+	 * Send a new verification email.
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function sendValidation()
+	{
+		$user = Auth::user();
+
+		UserVerification::generate( $user );
+
+		$user->notify( new EmailVerification() );
+
+		return redirect()->action( 'Auth\RegisterController@showValidationSent' );
+	}
+
+	/**
+	 * Show a message about the verification email, and allow to send a new verification email.
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function showValidationSent()
+	{
+		return view( 'auth.register_sent' );
 	}
 }

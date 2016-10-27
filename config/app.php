@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\OAuth2ServiceProvider::class,
+	    Jrean\UserVerification\UserVerificationServiceProvider::class,
         LucaVicidomini\BladeMaterialize\MaterializeServiceProvider::class,
 
         /*
@@ -228,6 +229,7 @@ return [
 
         'MHtml' => LucaVicidomini\BladeMaterialize\Facades\HtmlFacade::class,
         'MForm' => LucaVicidomini\BladeMaterialize\Facades\FormFacade::class,
+        //'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class
 
     ],
 
