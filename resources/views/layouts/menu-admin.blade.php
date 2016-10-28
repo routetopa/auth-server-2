@@ -7,6 +7,11 @@
         <li>
             <a href="{{ action( 'Admin\UserController@index' ) }}">
                 <i class="material-icons left">people</i>Users</a></li>
+        <li>
+            <a href="{{ action( 'Admin\PolicyController@index' ) }}">
+                <i class="material-icons left">description</i>Policies</a></li>
+            </a>
+        </li>
         <li class="divider"></li>
         <li>
             <a href="{{ action( 'Admin\ClientController@index' ) }}">

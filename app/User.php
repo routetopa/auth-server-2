@@ -48,4 +48,12 @@ class User extends Authenticatable
         return $this->roles == 'admin';
     }
 
+    /**
+     * The policies accepted/refused by the user
+     */
+    public function policies()
+    {
+	    return $this->belongsToMany( 'App\Policy' );
+    }
+
 }

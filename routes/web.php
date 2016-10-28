@@ -56,6 +56,8 @@ Route::group( [ 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'ad
     Route::any( 'user/{user}/ban', 'UserController@ban' );
     Route::resource( 'user', 'UserController' );
 
+	Route::resource( 'policy', 'PolicyController' );
+
     Route::resource( 'oauth2-client', 'ClientController' );
     Route::resource( 'oauth2-scope', 'ScopeController' );
 } );
