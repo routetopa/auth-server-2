@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Notifications\EmailVerification;
 use App\Notifications\UserVerificationNotification;
+use App\Policy;
 use App\User;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
@@ -84,14 +86,17 @@ class RegisterController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
+     * @param  array  $additionalRules
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator( array $data, array $additionalRules = [], $customMessages = [] )
     {
-        return Validator::make($data, [
-            'email' => 'required|email|max:255|unique:oauth_users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+	    $rules = [
+		    'email' => 'required|email|max:255|unique:oauth_users',
+		    'password' => 'required|min:6|confirmed',
+	    ];
+	    $rules = array_merge( $rules, $additionalRules );
+        return Validator::make( $data, $rules, $customMessages );
     }
 
     /**
@@ -117,7 +122,10 @@ class RegisterController extends Controller
 	{
 		if ( setting( 'registration_open' ) )
 		{
-			return $this->traitShowRegistrationForm();
+			$policies = Policy::all();
+
+			return $this->traitShowRegistrationForm()
+				->withPolicies( $policies );
 		}
 		else
 		{
@@ -133,11 +141,36 @@ class RegisterController extends Controller
 	 */
 	public function register(Request $request)
 	{
-		$this->validator( $request->all() )->validate();
+		// Create policies rules and messages
+		$policies = Policy::all();
+		$additionalRules = [];
+		$policiesMessages = [];
+		foreach ( $policies as $p )
+		{
+			if ( $p->is_mandatory )
+			{
+				$additionalRules[ "policy_{$p->id}" ] = 'accepted';
+				$policiesMessages[ "policy_{$p->id}.accepted" ] = "You must accept {$p->title}.";
+			}
+		}
 
+		// Create a validator for user input and policies
+		$this->validator( $request->all(), $additionalRules, $policiesMessages )->validate();
+
+		// Validator passed: create user
 		$user = $this->create( $request->all() );
 		$this->guard()->login( $user );
 
+		// Add policies to user profile
+		foreach ( $policies as $p )
+		{
+			$user->policies()->attach( $p->id, [
+				'accepted' => $request->get( "policy_{$p->id}" ),
+				'created_at' => Carbon::now(),
+			] );
+		}
+
+		// Show confirmation message
 		return $this->sendValidation();
 	}
 
