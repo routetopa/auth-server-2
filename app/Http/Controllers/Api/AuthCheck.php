@@ -57,6 +57,11 @@ class AuthCheck extends Controller
 	 */
     public function check_cors()
     {
+	    if ( ! setting( 'api_check_cors_enable' ) )
+	    {
+		    App::abort( 404 );
+	    }
+
 	    return response()->json( $this->generateJsonResponse() );
     }
 
@@ -69,6 +74,11 @@ class AuthCheck extends Controller
 	 */
     public function check_jsonp( Request $request )
     {
+	    if ( ! setting( 'api_check_jsonp_enable' ) )
+	    {
+		    App::abort( 404 );
+	    }
+
 	    $callback = $request->get( 'onload' );
 
 	    if ( ! $callback )

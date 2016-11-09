@@ -16,6 +16,8 @@ class SeedSettingsTable extends Migration
         DB::table( 'settings' )->insert( [
             [ 'key' => 'registration_open', 'value' => '0' ],
 	        [ 'key' => 'instance_title', 'value' => 'ROUTE-TO-PA' ],
+	        [ 'key' => 'api_check_jsonp_enable', 'value' => '1' ],
+	        [ 'key' => 'api_check_cors_enable', 'value' => '1' ],
         ] );
     }
 
