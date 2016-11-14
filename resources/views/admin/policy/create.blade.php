@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: Policies' )
+@section( 'title', trans( 'policy.create.meta_title' ) )
 
-@section( 'heading', 'Create Policy' )
+@section( 'heading', trans( 'policy.create.title' ) )
 
 @section( 'main' )
 
