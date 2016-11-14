@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: Users' )
+@section( 'title', trans( 'user.edit.meta_title' ) )
 
-@section( 'heading', 'Edit user' )
+@section( 'heading', trans( 'user.edit.title' ) )
 
 @section( 'main' )
 
@@ -20,7 +20,7 @@
 
             @row( right-align )
                 @col( s12 )
-                    {!! MForm::submit()->content( "Delete <i class=\"material-icons right\">delete</i>" )->css( 'red lighten-2' ) !!}
+                    {!! MForm::submit()->content( trans( 'form.delete' ) . " <i class=\"material-icons right\">delete</i>" )->css( 'red lighten-2' ) !!}
                 @endcol
             @endrow
         </form>
