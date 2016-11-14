@@ -26,6 +26,7 @@
                             </a>
                         </li>
                     @endif
+                    @include( 'layouts.menu-lang' )
                 </ul>
             </div>
         </nav>
