@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: Settings' )
+@section( 'title', trans( 'settings.meta_title' ) )
 
-@section( 'heading', 'Settings' )
+@section( 'heading', trans( 'settings.title' ) )
 
 @section( 'main' )
 
@@ -28,7 +28,7 @@
 
     @row
         @col( s12 right-align )
-            {!! MForm::submit( 'Save' ) !!}
+            {!! MForm::submit( trans( 'settings.action' ) ) !!}
         @endcol
 
     @endrow

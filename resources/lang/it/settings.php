@@ -13,18 +13,18 @@ return [
    |
    */
 
-    'title' => 'Settings',
-    'meta_title' => 'Settings',
-	'action' => 'Save',
+	'title' => 'Impostazioni',
+	'meta_title' => 'Impostazioni',
+	'action' => 'Salva',
 
 	'instance_title' => [
-		'label' => 'Instance title',
-		'description' => '',
+		'label' => 'Nome dell\'istanza',
+		'description' => 'Il nome dell\'istanza è visualizzata nell\'intestazione delle pagine web e nelle email inviate dal sistema.',
 	],
 
     'registration_open' => [
-        'label' => 'Allow users\' registration',
-        'description' => 'If checked, users will be allowed to register on their own.',
+        'label' => 'Abilita registrazione da parte degli utenti',
+        'description' => 'Se abilitata, gli utenti potranno registrarsi autonomamente. In caso contrario, solo un amministratore potrà iscrivere nuovi utenti.',
     ],
 
 ];
