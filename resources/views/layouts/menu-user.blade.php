@@ -5,6 +5,6 @@
     </a>
     <ul id="dropdown-user" class="dropdown-content">
         <li>
-            <a href="{{ action( 'ProfileController@edit' ) }}">Your profile</a></li>
+            <a href="{{ action( 'ProfileController@edit' ) }}">@lang( 'menu.user.profile' )</a></li>
     </ul>
 </li>
