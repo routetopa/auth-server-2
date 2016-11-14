@@ -6,7 +6,7 @@
     @endcol
     @col( s2 input-field )
         @if ( $user->id )
-        {!! MForm::input( 'id' )->tlabel( 'user.model.id' )->value( $user->id )->disabled() !!}
+        {!! MForm::input( 'id' )->tlabel( 'form.model.id' )->value( $user->id )->disabled() !!}
         @endif
     @endcol
 @endrow

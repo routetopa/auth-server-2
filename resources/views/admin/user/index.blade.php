@@ -21,7 +21,7 @@
             <table class="striped">
                 <thead>
                     <tr>
-                        <th data-field="id">@lang( 'user.model.id' )</th>
+                        <th data-field="id">@lang( 'form.model.id' )</th>
                         <th data-field="username">@lang( 'user.model.username' )</th>
                         <th data-field="email">@lang( 'user.model.email' )</th>
                         <th data-field="roles">@lang( 'user.model.roles' )</th>

@@ -11,7 +11,6 @@ return [
 	],
 
 	'model' => [
-		'id' => 'ID',
 		'username' => 'Nome utente',
 		'password' => 'Password',
 		'password_confirm' => 'Conferma password',
