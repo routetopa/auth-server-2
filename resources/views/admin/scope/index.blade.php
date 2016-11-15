@@ -1,15 +1,15 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: OAuth2 scopes' )
+@section( 'title', trans( 'scope.index.meta_title' ) )
 
-@section( 'heading', 'OAuth2 scopes management' )
+@section( 'heading', trans( 'scope.index.title' ) )
 
 @section( 'main' )
 
     <div class="container">
     @row
         @col( s12 right-align )
-            <a class="btn-floating btn-large waves-effect waves-light" href="{{ action( 'Admin\ScopeController@create' ) }}"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" href="{{ action( 'Admin\ScopeController@create' ) }}" title="@lang( 'scope.create.title' )"><i class="material-icons">add</i></a>
         @endcol
     @endrow
     </div>
@@ -21,10 +21,10 @@
             <table class="striped">
                 <thead>
                     <tr>
-                        <th data-field="is_default">Default</th>
-                        <th data-field="scope">Scope</th>
-                        <th data-field="created_at">Created</th>
-                        <th data-field="updated_at">Updated</th>
+                        <th data-field="is_default">@lang( 'scope.model.is_default' )</th>
+                        <th data-field="scope">@lang( 'scope.model.scope' )</th>
+                        <th data-field="created_at">@lang( 'form.model.created_at' )</th>
+                        <th data-field="updated_at">@lang( 'form.model.updated_at' )</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -33,14 +33,14 @@
                     <tr>
                         <td>
                             @if ( $scope->is_default )
-                                <i class="material-icons red-text" title="Default">grade</i>
+                                <i class="material-icons red-text" title="@lang( 'scope.model.is_default' )">grade</i>
                             @endif
                         </td>
                         <td>{{ $scope->scope }}</td>
                         <td>{{ $scope->created_at }}</td>
                         <td>{{ $scope->updated_at }}</td>
                         <td>
-                            <a href="{{ action( 'Admin\ScopeController@edit', [ 'scope' => $scope ] ) }}" title="Edit scope"><i class="material-icons">mode edit</i></a>
+                            <a href="{{ action( 'Admin\ScopeController@edit', [ 'scope' => $scope ] ) }}" title="@lang( 'scope.edit.title' )"><i class="material-icons">mode edit</i></a>
                         </td>
                     </tr>
                 @endforeach
