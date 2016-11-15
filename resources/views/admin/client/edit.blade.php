@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: OAuth2 clients' )
+@section( 'title', trans( 'client.edit.title' ) )
 
-@section( 'heading', 'Edit OAuth2 client' )
+@section( 'heading', trans( 'client.edit.meta_title' ) )
 
 @section( 'main' )
 
@@ -20,7 +20,7 @@
 
             @row( right-align )
                 @col( s12 )
-                    {!! MForm::submit()->content( "Delete <i class=\"material-icons right\">delete</i>" )->css( 'red lighten-2' ) !!}
+                    {!! MForm::submit()->content( trans( 'form.delete' ) . " <i class=\"material-icons right\">delete</i>" )->css( 'red lighten-2' ) !!}
                 @endcol
             @endrow
         </form>
