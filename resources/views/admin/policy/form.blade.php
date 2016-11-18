@@ -20,7 +20,7 @@
 
 @row
     @col ( s12 )
-        {!! MForm::checkbox( 'is_mandatory' )->label( 'Mandatory' )->checked( $policy->is_mandatory ) !!}
+        {!! MForm::checkbox( 'is_mandatory' )->label( 'Mandatory' )->checked( $policy->is_mandatory )->ghost( 0 ) !!}
     @endcol
 @endrow
 

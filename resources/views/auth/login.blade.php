@@ -29,7 +29,7 @@
                                     {!! MForm::password( 'password' )->label( 'Password' )->css( 'validate' ) !!}
                                 @endcol
                                 @col( s12 )
-                                    {!! MForm::checkbox( 'remember' )->label( 'Remember me' )->css( 'validate' ) !!}
+                                    {!! MForm::checkbox( 'remember' )->label( 'Remember me' )->css( 'validate' )->ghost( 0 ) !!}
                                 @endcol
                             @endrow
                             @row

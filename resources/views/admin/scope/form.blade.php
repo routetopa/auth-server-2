@@ -8,7 +8,7 @@
 
 @row
     @col ( s12 )
-        {!! MForm::checkbox( 'is_default' )->label( 'Default' )->checked( $scope->is_default ) !!}
+        {!! MForm::checkbox( 'is_default' )->label( 'Default' )->checked( $scope->is_default )->ghost( 0 ) !!}
     @endcol
 @endrow
 

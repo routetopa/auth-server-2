@@ -22,13 +22,13 @@
 
 @row
     @col ( s12 )
-        {!! MForm::checkbox( 'is_banned' )->label( 'This user is banned' )->checked( $user->is_banned ) !!}
+        {!! MForm::checkbox( 'is_banned' )->label( 'This user is banned' )->checked( $user->is_banned )->ghost( 0 ) !!}
     @endcol
 @endrow
 
 @row
     @col ( s12 )
-        {!! MForm::checkbox( 'is_admin' )->label( 'This user is <div class="chip">admin</div>' )->checked( $user->isAdmin() ) !!}
+        {!! MForm::checkbox( 'is_admin' )->label( 'This user is <div class="chip">admin</div>' )->checked( $user->isAdmin() )->ghost( 0 ) !!}
     @endcol
 @endrow
 
