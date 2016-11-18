@@ -6,13 +6,13 @@
     <ul id="dropdown-lang" class="dropdown-content">
         @foreach( [ 'en', 'it' ] as $lang )
             <li>
-                <form action="{{ url( '/lang', [ 'lang' => $lang ] ) }}" method="post">
+                <a href="{{ url( '/lang', [ 'lang' => $lang ] ) }}" onclick="event.preventDefault(); document.getElementById('lang-switch-{{ $lang }}').submit();">
+                    <i class="material-icons left">{{ App::isLocale( $lang ) ? 'radio_button_checked' : 'radio_button_unchecked'  }}</i>
+                    {{ $lang }}
+                </a>
+                <form id="lang-switch-{{ $lang }}" action="{{ url( '/lang', [ 'lang' => $lang ] ) }}" method="post" style="display: none;">
                     <input type="hidden" name="backuri" value="{{ Request::path() }}">
                     {{ csrf_field() }}
-                    <a href="#" onclick="this.parentNode.submit();">
-                        <i class="material-icons left">{{ App::isLocale( $lang ) ? 'radio_button_checked' : 'radio_button_unchecked'  }}</i>
-                        {{ $lang }}
-                    </a>
                 </form>
             </li>
         @endforeach
