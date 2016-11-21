@@ -39,4 +39,25 @@ return [
 		],
 	],
 
+	'form' => [
+		'email' => 'E-mail',
+		'new_password' => 'Choose a password',
+		'confirm_password' => 'Confirm password',
+		'action_reset' => 'Reset',
+	],
+
+    'forgot' => [
+	    'title' => 'Forgot password',
+	    'meta_title' => 'Forgot password',
+	    'action_title' => 'Reset password',
+	    'action_message' => 'Insert your e-mail here: we will send you an email with a link that you can use to reset your password.',
+    ],
+
+    'reset' => [
+	    'title' => 'Reset password',
+	    'meta_title' => 'Reset password',
+	    'action_title' => 'New password',
+	    'action_message' => 'Please insert your e-mail in the form below and choose a new password.',
+    ],
+
 ];

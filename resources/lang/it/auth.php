@@ -39,4 +39,25 @@ return [
 	    ],
     ],
 
+    'form' => [
+	    'email' => 'E-mail',
+	    'new_password' => 'Password',
+	    'confirm_password' => 'Conferma password',
+	    'action_reset' => 'Reimposta',
+    ],
+
+    'forgot' => [
+	    'title' => 'Password dimenticata',
+	    'meta_title' => 'Password dimenticata',
+	    'action_title' => 'Reimposta password',
+	    'action_message' => 'Inserisci il tuo indirizzo e-mail: ti invieremo una e-mail contenente un collegamento per reimpostare la tua password.',
+    ],
+
+    'reset' => [
+	    'title' => 'Reimposta password',
+	    'meta_title' => 'Reimposta password',
+	    'action_title' => 'Nuova password',
+	    'action_message' => 'Inserisci la tua e-mail e sceli la tua nuova password.',
+    ],
+
 ];

@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Reset password' )
+@section( 'title', trans( 'auth.forgot.meta_title' ) )
 
-@section( 'heading', 'Forgot password' )
+@section( 'heading', trans( 'auth.forgot.title' ) )
 
 @section( 'main' )
 
@@ -14,21 +14,20 @@
                 <div class="card-content">
                     <span class="card-title">
                         <i class="material-icons">live_help</i>
-                        Reset password
+                        @lang( 'auth.forgot.action_title' )
                     </span>
-                    <p>Insert your e-mail here: we will send you an email with a link that you can use to
-                        reset your password.</p>
+                    <p>@lang( 'auth.forgot.action_message' )</p>
                     @row
                     <form class="col s12" action="{{ url('/password/email') }}" method="POST">
                         {{ csrf_field() }}
                         @row
                             @col( s12 input-field )
-                                {!! MForm::input( 'email' )->label( 'E-mail' ) !!}
+                                {!! MForm::input( 'email' )->tlabel( 'auth.form.email' ) !!}
                             @endcol
                         @endrow
                         @row
                             @col( s12 right-align )
-                                {!! MForm::submit( 'Reset' ) !!}
+                                {!! MForm::submit( trans( 'auth.form.action_reset') ) !!}
                             @endcol
                         @endrow
                     </form>
