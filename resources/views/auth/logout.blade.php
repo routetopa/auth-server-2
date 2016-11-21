@@ -1,13 +1,13 @@
 <div id="logout_modal" class="modal">
     <div class="modal-content">
-        <h4>Logout</h4>
-        <p>Are you sure you want to log out?</p>
+        <h4>@lang( 'auth.logout.action_title' )</h4>
+        <p>@lang( 'auth.logout.action_message' )</p>
     </div>
     <div class="modal-footer">
         <form method="POST" action="/logout">
             {{ csrf_field() }}
-            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Logout</button>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">@lang( 'auth.logout.button_logout' )</button>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">@lang( 'auth.logout.button_cancel' )</a>
         </form>
     </div>
 </div>

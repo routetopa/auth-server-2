@@ -39,6 +39,13 @@ return [
 		],
 	],
 
+	'logout' => [
+		'action_title' => 'Logout',
+		'action_message' => 'Are you sure you want to log out?',
+		'button_logout' => 'Logout',
+		'button_cancel' => 'Cancel',
+	],
+
 	'form' => [
 		'email' => 'E-mail',
 		'new_password' => 'Choose a password',

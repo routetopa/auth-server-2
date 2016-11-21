@@ -1,9 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'heading', 'New user' )
+@section( 'title', trans( 'auth.register.meta_title' ) )
 
-@section( 'heading', 'New user' )
-
+@section( 'heading', trans( 'auth.register.title' ) )
 
 @section( 'main' )
 
