@@ -150,7 +150,8 @@ class RegisterController extends Controller
 			if ( $p->is_mandatory )
 			{
 				$additionalRules[ "policy_{$p->id}" ] = 'accepted';
-				$policiesMessages[ "policy_{$p->id}.accepted" ] = "You must accept {$p->title}.";
+				$policiesMessages[ "policy_{$p->id}.accepted" ] =
+					trans( 'validation.accepted', [ 'attribute' => $p->title ] );
 			}
 		}
 

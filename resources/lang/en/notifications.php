@@ -15,4 +15,10 @@ return [
 		'action_button' => 'Reset password',
 	],
 
+	'register' => [
+		'line1' => 'You are receiving this email because we received a registration request for your email address.',
+		'line2' => 'If you did not request to register, no further action is required.',
+		'action_button' => 'Verify email',
+	],
+
 ];

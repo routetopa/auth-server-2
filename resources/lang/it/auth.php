@@ -60,4 +60,16 @@ return [
 	    'action_message' => 'Inserisci la tua e-mail e sceli la tua nuova password.',
     ],
 
+    'register' => [
+	    'title' => 'Nuovo utente',
+	    'meta_title' => 'Nuovo utente',
+	    'action_title' => 'Registrati',
+	    'action_message' => 'Inserisci il tuo indirizzo email e sceglie una password. Riceverai una email con le istruzioni per confermare il tuo account.',
+	    'accept' => 'Ho letto e accettato: <a href=":url" target=\"_blank\">:title</a>',
+	    'accept_mandatory' => 'Ho letto e accettato: <a href=":url" target=\"_blank\">:title</a> (obbligatoria)',
+	    'sent_message' => 'Ti abbiamo inviato una e-mail contenente un collegamento per verificare il tuo indirizzo e-mail.',
+	    'sent_action' => 'Re-invia email di verifica',
+	    'closed_message' => 'Spiacenti, le registrazioni sono chiuse.',
+    ],
+
 ];

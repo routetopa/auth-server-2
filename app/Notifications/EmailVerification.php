@@ -49,9 +49,9 @@ class EmailVerification extends Notification
 	            . '?email=' . urlencode( $notifiable->email );
 
 	    return (new MailMessage)
-		    ->line('You are receiving this email because we received a registration request for your email address.')
-		    ->action('Verify email', $link )
-		    ->line('If you did not request to register, no further action is required.');
+		    ->line( trans( 'notifications.register.line1' ) )
+		    ->action( trans( 'notifications.register.action_button' ), $link )
+		    ->line( trans( 'notifications.register.line2' ) );
     }
 
     /**

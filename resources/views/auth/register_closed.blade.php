@@ -14,9 +14,9 @@
 			<div class="card-content">
 				<span class="card-title">
 					<i class="material-icons">group</i>
-					Register
+					@lang( 'auth.register.action_title' )
 				</span>
-				<p>Sorry, registrations are closed.</p>
+				<p>@lang( 'auth.register.closed_message' )</p>
 			</div>
 		</div>
 	@endcol

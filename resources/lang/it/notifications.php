@@ -15,4 +15,10 @@ return [
 		'action_button' => 'Reimposta password',
 	],
 
+	'register' => [
+		'line1' => 'Ricevi questo messaggio perché qualcuno ha chiesto di iscriversi con questo indirizzo e-mail.',
+		'line2' => 'Se non hai chiesto tu di iscriverti, puoi semplicemente ignorare questo messaggio.',
+		'action_button' => 'Verifica e-mail',
+	],
+
 ];

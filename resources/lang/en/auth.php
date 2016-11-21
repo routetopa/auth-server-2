@@ -44,6 +44,7 @@ return [
 		'new_password' => 'Choose a password',
 		'confirm_password' => 'Confirm password',
 		'action_reset' => 'Reset',
+		'action_register' => 'Register',
 	],
 
     'forgot' => [
@@ -59,5 +60,17 @@ return [
 	    'action_title' => 'New password',
 	    'action_message' => 'Please insert your e-mail in the form below and choose a new password.',
     ],
+
+	'register' => [
+		'title' => 'New user',
+		'meta_title' => 'New user',
+		'action_title' => 'Register',
+		'action_message' => 'Type your e-mail address and choose a password. You will receive an email with instructions on how to confirm your account.',
+		'accept' => 'I have read and accepted <a href=":url" target=\"_blank\">:title</a>',
+		'accept_mandatory' => 'I have read and accepted <a href=":url" target=\"_blank\">:title</a> (mandatory)',
+		'sent_message' => 'In order to verify you address, we sent you a confirmation link at your e-mail address.',
+		'sent_action' => 'Re-send verification email',
+		'closed_message' => 'Sorry, registrations are closed.',
+	],
 
 ];
