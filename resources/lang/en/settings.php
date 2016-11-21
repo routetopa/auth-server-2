@@ -13,6 +13,10 @@ return [
    |
    */
 
+    'title' => 'Settings',
+    'meta_title' => 'Settings',
+	'action' => 'Save',
+
 	'instance_title' => [
 		'label' => 'Instance title',
 		'description' => '',

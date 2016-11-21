@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Reset password' )
+@section( 'title', trans( 'auth.reset.meta_title' ) )
 
-@section( 'heading', 'Forgot password' )
+@section( 'heading', trans( 'auth.reset.title' ) )
 
 @section( 'main' )
 
@@ -14,10 +14,10 @@
                 <div class="card-content">
                     <span class="card-title">
                         <i class="material-icons">live_help</i>
-                        Reset password
+                        @lang( 'auth.reset.action_title' )
                     </span>
 
-                    <p>Please insert your e-mail in the form below and choose a new password.</p>
+                    <p>@lang( 'auth.reset.action_message' )</p>
 
                     @row
                     <form class="col s12" action="{{ url( '/password/reset' ) }}" method="POST">
@@ -26,25 +26,25 @@
 
                         @row
                             @col( s12 input-field )
-                                {!! MForm::input( 'email' )->label( 'E-mail' )->value( $email or old('email') ) !!}
+                                {!! MForm::input( 'email' )->tlabel( 'auth.form.email' )->value( $email or old('email') ) !!}
                             @endcol
                         @endrow
 
                         @row
                             @col( s12 input-field )
-                                {!! MForm::password( 'password' )->label( 'Choose a password' ) !!}
+                                {!! MForm::password( 'password' )->tlabel( 'auth.form.new_password' ) !!}
                             @endcol
                         @endrow
 
                         @row
                             @col( s12 input-field )
-                                {!! MForm::password( 'password_confirmation' )->label( 'Confirm password' ) !!}
+                                {!! MForm::password( 'password_confirmation' )->tlabel( 'auth.form.confirm_password' ) !!}
                             @endcol
                         @endrow
 
                         @row
                             @col( s12 right-align )
-                                {!! MForm::submit( 'Reset' ) !!}
+                                {!! MForm::submit( trans( 'auth.form.action_reset' ) ) !!}
                             @endcol
                         @endrow
                     </form>

@@ -88,9 +88,9 @@ $style = [
                                                 {{ $greeting }}
                                             @else
                                                 @if ($level == 'error')
-                                                    Whoops!
+                                                    @lang( 'notifications.greeting_error' )
                                                 @else
-                                                    Hello!
+                                                    @lang( 'notifications.greeting_hello' )
                                                 @endif
                                             @endif
                                         </h1>
@@ -140,7 +140,7 @@ $style = [
 
                                         <!-- Salutation -->
                                         <p style="{{ $style['paragraph'] }}">
-                                            Regards,<br>{{ setting( 'instance_title' ) }}
+                                            @lang( 'notifications.regards' ),<br>{{ setting( 'instance_title' ) }}
                                         </p>
 
                                         <!-- Sub Copy -->
@@ -149,8 +149,7 @@ $style = [
                                                 <tr>
                                                     <td style="{{ $fontFamily }}">
                                                         <p style="{{ $style['paragraph-sub'] }}">
-                                                            If you’re having trouble clicking the "{{ $actionText }}" button,
-                                                            copy and paste the URL below into your web browser:
+                                                            @lang( 'notifications.action_message', [ 'action_text' => $actionText ] )
                                                         </p>
 
                                                         <p style="{{ $style['paragraph-sub'] }}">

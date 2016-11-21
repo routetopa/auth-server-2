@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: OAuth2 scopes' )
+@section( 'title', trans( 'scope.create.title' ) )
 
-@section( 'heading', 'Create OAuth2 scope' )
+@section( 'heading', trans( 'scope.create.meta_title' ) )
 
 @section( 'main' )
 

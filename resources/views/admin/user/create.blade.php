@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: Users' )
+@section( 'title', trans( 'user.create.meta_title' ) )
 
-@section( 'heading', 'Create user' )
+@section( 'heading', trans( 'user.create.title' ) )
 
 @section( 'main' )
 

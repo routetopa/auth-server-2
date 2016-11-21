@@ -1,5 +1,11 @@
 <?php
 
+Route::post( 'lang/{lang?}', function( $lang = null ) {
+	session( [ 'locale' => $lang ] );
+	$uri = \Illuminate\Support\Facades\Request::input( 'backuri' ) ?: '/';
+	return redirect( $uri );
+} );
+
 /*
 |------------------------------------------------------------------------------
 | OAuth routes

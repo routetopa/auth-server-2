@@ -15,22 +15,21 @@
                 <div class="card-content">
                     <span class="card-title">
                         <i class="material-icons">group</i>
-                        Register
+                        @lang( 'auth.register.action_title' )
                     </span>
-                    <p>Excellent! We are glad you are joining us. We just need your email, later we will ask
-                        you all needed details such as name, date of birth, and so on.</p>
+                    <p>@lang( 'auth.register.action_message' )</p>
                     @row
                     <form class="col s12" action="{{ url('/register') }}" method="POST">
                         {{ csrf_field() }}
                         @row
                             @col( s12 input-field )
-                                {!! MForm::input( 'email' )->label( 'E-mail' )->value( old( 'email' ) ) !!}
+                                {!! MForm::input( 'email' )->tlabel( 'auth.form.email' )->value( old( 'email' ) ) !!}
                             @endcol
                             @col( s12 input-field )
-                                {!! MForm::password( 'password' )->label( 'Choose a password' ) !!}
+                                {!! MForm::password( 'password' )->tlabel( 'auth.form.new_password' ) !!}
                             @endcol
                             @col( s12 input-field )
-                                {!! MForm::password( 'password_confirmation' )->label( 'Confirm password' ) !!}
+                                {!! MForm::password( 'password_confirmation' )->tlabel( 'auth.form.confirm_password' ) !!}
                             @endcol
                         @endrow
 
@@ -39,10 +38,10 @@
                                 @col( s12 input-field )
                                     <?php
                                         $uri = $policy->uri ?: '#';
-                                        $mandatory = $policy->is_mandatory ? ' (mandatory)' : '';
+                                        $label_key = $policy->is_mandatory ? 'auth.register.accept_mandatory' : 'auth.register.accept';
                                     ?>
                                     {!! MForm::checkbox( "policy_{$policy->id}" )
-                                        ->label( "I have read and accepted <a href=\"{$uri}\" target=\"_blank\">{$policy->title}</a>{$mandatory}")
+                                        ->label( trans( $label_key, [ 'url' => $uri, 'title' => $policy->title ] ) )
                                         ->ghost( 0 )
                                         ->checked( old( "policy_{$policy->id}" ) ) !!}
                                 @endcol
@@ -51,7 +50,7 @@
 
                         @row( right-align )
                             @col( s12 )
-                                {!! MForm::submit( 'Register' ) !!}
+                                {!! MForm::submit( trans( 'auth.form.action_register' ) ) !!}
                             @endcol
                         @endrow
                     </form>

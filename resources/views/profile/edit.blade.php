@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Your profile' )
+@section( 'title', trans( 'profile.edit.title' ) )
 
-@section( 'heading', 'Your profile' )
+@section( 'heading', trans( 'profile.edit.meta_title' ) )
 
 @section( 'main' )
 

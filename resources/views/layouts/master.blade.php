@@ -22,10 +22,11 @@
                         <li>
                             <a class="modal-trigger" href="#logout_modal">
                                 <i class="material-icons left">exit_to_app</i>
-                                Logout
+                                @lang( 'menu.logout' )
                             </a>
                         </li>
                     @endif
+                    @include( 'layouts.menu-lang' )
                 </ul>
             </div>
         </nav>

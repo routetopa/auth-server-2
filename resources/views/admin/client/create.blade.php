@@ -1,8 +1,8 @@
 @extends( 'layouts.master' )
 
-@section( 'title', 'Admin :: OAuth2 clients' )
+@section( 'title', trans( 'client.create.title' ) )
 
-@section( 'heading', 'Create OAuth2 client' )
+@section( 'heading', trans( 'client.create.meta_title' ) )
 
 @section( 'main' )
 
