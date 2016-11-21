@@ -42,7 +42,6 @@
                                     ?>
                                     {!! MForm::checkbox( "policy_{$policy->id}" )
                                         ->label( trans( $label_key, [ 'url' => $uri, 'title' => $policy->title ] ) )
-                                        ->ghost( 0 )
                                         ->checked( old( "policy_{$policy->id}" ) ) !!}
                                 @endcol
                             @endforeach

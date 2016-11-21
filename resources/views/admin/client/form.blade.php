@@ -50,7 +50,7 @@
 
 @row
     @col( s12 )
-        {!! MForm::checkbox( 'auto_authorize' )->tlabel( 'client.edit.auto_authorize' )->checked( $client->auto_authorize )->ghost( 0 ) !!}
+        {!! MForm::checkbox( 'auto_authorize' )->tlabel( 'client.edit.auto_authorize' )->checked( $client->auto_authorize ) !!}
     @endcol
 @endrow
 
