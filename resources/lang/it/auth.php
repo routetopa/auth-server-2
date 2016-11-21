@@ -39,6 +39,13 @@ return [
 	    ],
     ],
 
+    'logout' => [
+	    'action_title' => 'Esci',
+	    'action_message' => 'Sei sicuro di voler uscire dalla piattaforma?',
+	    'button_logout' => 'Esci',
+	    'button_cancel' => 'Resta connesso',
+    ],
+
     'form' => [
 	    'email' => 'E-mail',
 	    'new_password' => 'Password',
