@@ -169,6 +169,7 @@ return [
         App\Providers\OAuth2ServiceProvider::class,
 	    Jrean\UserVerification\UserVerificationServiceProvider::class,
         LucaVicidomini\BladeMaterialize\MaterializeServiceProvider::class,
+	    Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -12,7 +12,8 @@
         "bshaffer/oauth2-server-php": "^1.8",
         "bshaffer/oauth2-server-httpfoundation-bridge": "^1.1",
         "jrean/laravel-user-verification": "^3.0",
-        "lucavicidomini/blade-materialize": "dev-master"
+        "lucavicidomini/blade-materialize": "dev-master",
+        "barryvdh/laravel-cors": "^0.8.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

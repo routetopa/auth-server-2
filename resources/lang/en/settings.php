@@ -27,4 +27,25 @@ return [
         'description' => 'If checked, users will be allowed to register on their own.',
     ],
 
+	/*
+   |--------------------------------------------------------------------------
+   | Check authentication API
+   |--------------------------------------------------------------------------
+	*/
+
+	'api_check' => [
+		'heading' => 'Check authentication API',
+		'description' => '',
+	],
+
+	'api_check_jsonp_enable' => [
+		'label' => 'Enable JSONP API',
+		'description' => '',
+	],
+
+	'api_check_cors_enable' => [
+		'label' => 'Enable CORS API',
+		'description' => '',
+	],
+
 ];

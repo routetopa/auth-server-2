@@ -26,6 +26,21 @@
     @endrow
 
     @row
+        <h2>@lang( 'settings.api_check.heading' )</h2>
+        @col( s12 )
+            {!! MForm::checkbox( 'settings_api_check_jsonp_enable', $settings->get( 'api_check_jsonp_enable' )->value )
+                ->label( trans( 'settings.api_check_jsonp_enable.label' ) )
+                ->ghost( 0 ) !!}
+        @endcol
+        @col( s12 )
+            {!! MForm::checkbox( 'settings_api_check_cors_enable', $settings->get( 'api_check_cors_enable' )->value )
+                ->label( trans( 'settings.api_check_cors_enable.label' ) )
+                ->ghost( 0 ) !!}
+        @endcol
+
+    @endrow
+
+    @row
         @col( s12 right-align )
             {!! MForm::submit( trans( 'settings.action' ) ) !!}
         @endcol
