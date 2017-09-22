@@ -59,6 +59,8 @@ Route::group( [ 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'ad
     Route::get( 'setting', 'SettingController@edit' );
     Route::put( 'setting', 'SettingController@update' );
 
+    Route::get( 'status', 'StatusController@index' );
+
     Route::any( 'user/{user}/ban', 'UserController@ban' );
     Route::resource( 'user', 'UserController' );
 
