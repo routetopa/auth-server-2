@@ -22,7 +22,7 @@
                             {{ csrf_field() }}
                             @row
                                 @col( s12 input-field )
-                                    {!! MForm::input( 'email' )->tlabel( 'auth.login.login_card.email' )->css( 'validate' ) !!}
+                                    {!! MForm::input( 'email' )->tlabel( 'auth.login.login_card.email' )->css( 'validate' )->value( old( 'email' ) ) !!}
                                 @endcol
                                 @col( s12 input-field )
                                     {!! MForm::password( 'password' )->tlabel( 'auth.login.login_card.password' )->css( 'validate' ) !!}
