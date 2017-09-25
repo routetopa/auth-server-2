@@ -144,7 +144,7 @@ class FacebookController extends Controller
         Auth::login($user, true);
 
         // You can redirect them to a members-only page.
-        return redirect('/');
+        return redirect()->intended();
     }
 
 }
