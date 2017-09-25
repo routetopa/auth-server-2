@@ -13,7 +13,8 @@
         "bshaffer/oauth2-server-httpfoundation-bridge": "^1.1",
         "jrean/laravel-user-verification": "^3.0",
         "lucavicidomini/blade-materialize": "dev-master",
-        "barryvdh/laravel-cors": "^0.8.2"
+        "barryvdh/laravel-cors": "^0.8.2",
+        "facebook/graph-sdk": "^5.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
