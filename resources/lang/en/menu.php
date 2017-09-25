@@ -9,6 +9,7 @@ return [
 		'client' => 'Clients',
 		'scope' => 'Scopes',
 		'setting' => 'Settings',
+        'status' => 'System info',
 	],
 	'user' => [
 		'profile' => 'Your profile',

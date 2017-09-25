@@ -23,5 +23,9 @@
         <li>
             <a href="{{ action( 'Admin\SettingController@edit' ) }}">
                 <i class="material-icons left">build</i>@lang( 'menu.admin.setting' )</a></li>
+        <li class="divider"></li>
+        <li>
+            <a href="{{ action( 'Admin\StatusController@index' ) }}">
+                <i class="material-icons left">info</i>@lang( 'menu.admin.status' )</a></li>
     </ul>
 </li>
