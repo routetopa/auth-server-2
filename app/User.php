@@ -56,4 +56,11 @@ class User extends Authenticatable
 	    return $this->belongsToMany( 'App\Policy' );
     }
 
+    /**
+     * @return FacebookLogin
+     */
+    public function facebook() {
+        return $this->hasMany(FacebookLogin::class);
+    }
+
 }

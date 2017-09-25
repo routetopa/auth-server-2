@@ -41,6 +41,20 @@
     @endrow
 
     @row
+        <h2>@lang( 'settings.fb.heading' )</h2>
+        @col( s6 input-field )
+            {!! MForm::input( 'settings_fb_app_id' )
+                ->label( trans( 'settings.fb_app_id.label' ) )
+                ->value( $settings->get( 'fb_app_id' )->value ) !!}
+        @endcol
+        @col( s6 input-field )
+        {!! MForm::input( 'settings_fb_app_secret' )
+            ->label( trans( 'settings.fb_app_secret.label' ) )
+            ->value( $settings->get( 'fb_app_secret' )->value ) !!}
+        @endcol
+    @endrow
+
+    @row
         @col( s12 right-align )
             {!! MForm::submit( trans( 'settings.action' ) ) !!}
         @endcol

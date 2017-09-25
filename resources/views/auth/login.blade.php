@@ -4,7 +4,6 @@
 
 @section( 'heading', trans( 'auth.login.title' ) )
 
-
 @section( 'main' )
 
     @include( 'errors.summary' )
@@ -38,6 +37,17 @@
                                 @endcol
                             @endrow
                         </form>
+                    @endrow
+                    <hr>
+                    @row
+                    <form class="col s12" action="{{ action('Auth\FacebookController@login') }}" method="POST">
+                        {{ csrf_field() }}
+                        @row
+                            @col( s12 right-align )
+                                {!! MForm::submit( trans( 'LOGIN WITH FB' ) ) !!}
+                            @endcol
+                        @endrow
+                    </form>
                     @endrow
                 </div>
             </div>

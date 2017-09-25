@@ -48,4 +48,25 @@ return [
 		'description' => '',
 	],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Facebook login
+    |--------------------------------------------------------------------------
+    */
+
+    'fb' => [
+        'heading' => 'Facebook',
+        'description' => '',
+    ],
+
+    'fb_app_id' => [
+        'label' => 'App ID',
+        'description' => '',
+    ],
+
+    'fb_app_secret' => [
+        'label' => 'App secret',
+        'description' => '',
+    ],
+
 ];

@@ -27,4 +27,25 @@ return [
         'description' => 'Se abilitata, gli utenti potranno registrarsi autonomamente. In caso contrario, solo un amministratore potrà iscrivere nuovi utenti.',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Facebook login
+    |--------------------------------------------------------------------------
+    */
+
+    'fb' => [
+        'heading' => 'Facebook',
+        'description' => '',
+    ],
+
+    'fb_app_id' => [
+        'label' => 'ID App',
+        'description' => '',
+    ],
+
+    'fb_app_secret' => [
+        'label' => 'App secret',
+        'description' => '',
+    ],
+
 ];

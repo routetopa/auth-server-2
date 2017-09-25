@@ -23,6 +23,19 @@ Route::group( [ 'prefix' => 'oauth', 'middleware' => [ /*'auth', 'verified'*/ ] 
 
 /*
 |------------------------------------------------------------------------------
+| Facebook routes
+|------------------------------------------------------------------------------
+|
+| Enables Login/Logout via Facebook
+|
+*/
+Route::group( [ 'prefix' => 'fb' ], function() {
+    Route::any( 'login', 'Auth\FacebookController@login' );
+    Route::any( 'callback', 'Auth\FacebookController@callback' );
+} );
+
+/*
+|------------------------------------------------------------------------------
 | Authentication routes
 |------------------------------------------------------------------------------
 |

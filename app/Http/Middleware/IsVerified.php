@@ -15,7 +15,10 @@ class IsVerified
      */
     public function handle($request, Closure $next)
     {
-	    if( ! $request->user()->verified){
+        $user = $request->user();
+        $email_verified = $user->verified;
+        $facebook_login = $user->facebook;
+	    if( ! ($email_verified || $facebook_login) ){
 		    return redirect()->action( 'Auth\RegisterController@showValidationSent' );
 	    }
 
