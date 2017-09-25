@@ -18,7 +18,7 @@
                     </span>
                     <p>@lang( 'auth.login.login_card.message' )</p>
                     @row
-                        <form class="col s12" action="{{ url('/login') }}" method="POST">
+                        <form class="col s12" action="{{ route('login') }}" method="POST">
                             {{ csrf_field() }}
                             @row
                                 @col( s12 input-field )
