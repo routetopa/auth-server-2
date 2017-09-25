@@ -15,10 +15,10 @@ Route::post( 'lang/{lang?}', function( $lang = null ) {
 | OAuth2 / OpenIDConnect flows.
 |
 */
-Route::group( [ 'prefix' => 'oauth', 'middleware' => [ 'auth', 'verified' ] ], function() {
-    Route::any( 'authorize', 'OAuth2Controller@auth' )->middleware( 'auth' );
-    Route::post( 'token', 'OAuth2Controller@token' );
-    Route::get( 'v1/userinfo', 'OAuth2Controller@userinfo' );
+Route::group( [ 'prefix' => 'oauth', 'middleware' => [ /*'auth', 'verified'*/ ] ], function() {
+    Route::any( 'authorize', 'OAuth2Controller@auth' )->middleware( 'auth' )->name( 'oauth2_authorize' );
+    Route::post( 'token', 'OAuth2Controller@token' )->name( 'oauth2_token' );
+    Route::get( 'v1/userinfo', 'OAuth2Controller@userinfo' )->name( 'oauth2_userinfo' );
 } );
 
 /*

@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get( 'check_auth', 'Api\AuthCheck@check_cors' )->middleware( 'cors' );
+Route::get( 'check_auth', 'Api\AuthCheck@check_cors' )->middleware( 'cors' )->name( 'check_auth' );
 
-Route::get( 'check_auth.js', 'Api\AuthCheck@check_jsonp' );
+Route::get( 'check_auth.js', 'Api\AuthCheck@check_jsonp' )->name( 'check_auth_js' );
