@@ -18,6 +18,8 @@ class SeedSettingsTable extends Migration
 	        [ 'key' => 'instance_title', 'value' => 'ROUTE-TO-PA' ],
 	        [ 'key' => 'api_check_jsonp_enable', 'value' => '1' ],
 	        [ 'key' => 'api_check_cors_enable', 'value' => '1' ],
+            [ 'key' => 'fb_app_id', 'value' => '' ],
+            [ 'key' => 'fb_app_secret', 'value' => '' ],
         ] );
     }
 
