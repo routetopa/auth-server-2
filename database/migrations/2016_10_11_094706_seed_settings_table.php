@@ -20,6 +20,9 @@ class SeedSettingsTable extends Migration
 	        [ 'key' => 'api_check_cors_enable', 'value' => '1' ],
             [ 'key' => 'fb_app_id', 'value' => '' ],
             [ 'key' => 'fb_app_secret', 'value' => '' ],
+            [ 'key' => 'jwt_enable', 'value' => '0' ],
+            [ 'key' => 'key_private', 'value' => '' ],
+            [ 'key' => 'key_public', 'value' => '' ],
         ] );
     }
 
