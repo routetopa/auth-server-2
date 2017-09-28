@@ -55,6 +55,25 @@
     @endrow
 
     @row
+        <h2>@lang( 'settings.jwt.heading' )</h2>
+        @col( s12 )
+        {!! MForm::checkbox( 'settings_jwt_enable', $settings->get( 'jwt_enable' )->value )
+            ->label( trans( 'settings.jwt_enable.label' ) )
+            ->ghost( 0 ) !!}
+        @endcol
+        @col( s6 input-field )
+        {!! MForm::input( 'settings_key_public' )
+            ->label( trans( 'settings.key_public.label' ) )
+            ->value( $settings->get( 'key_public' )->value ) !!}
+        @endcol
+        @col( s6 input-field )
+        {!! MForm::input( 'settings_key_private' )
+            ->label( trans( 'settings.key_private.label' ) )
+            ->value( $settings->get( 'key_private' )->value ) !!}
+        @endcol
+    @endrow
+
+    @row
         @col( s12 right-align )
             {!! MForm::submit( trans( 'settings.action' ) ) !!}
         @endcol

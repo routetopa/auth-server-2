@@ -46,6 +46,21 @@ class OAuth2ServiceProvider extends ServiceProvider
             $storage = new Pdo( App::make( 'db' )->getPdo() );
             $server = new Server( $storage );
 
+            if (setting('jwt_enable') && setting('key_private') && setting('key_public')) {
+                $publicKey  = file_get_contents( setting('key_public' ) );
+                $privateKey = file_get_contents( setting('key_private' ) );
+                $keyStorage = new \OAuth2\Storage\Memory([
+                    'keys' => [
+                        'public_key'  => $publicKey,
+                        'private_key' => $privateKey,
+                    ],
+                ]);
+
+                $server->addStorage($keyStorage, 'access_token');
+                $server->addStorage($keyStorage, 'public_key');
+                $server->setConfig('use_jwt_access_tokens', true);
+            }
+
             $server->addGrantType( new ClientCredentials( $storage ) );
             $server->addGrantType( new UserCredentials( $storage ) );
 

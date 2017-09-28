@@ -69,4 +69,30 @@ return [
         'description' => '',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | JWT
+    |--------------------------------------------------------------------------
+    */
+
+    'jwt' => [
+        'heading' => 'JWT',
+        'description' => '',
+    ],
+
+    'jwt_enable' => [
+        'label' => 'Use JWT',
+        'description' => '',
+    ],
+
+    'key_public' => [
+        'label' => 'Public key',
+        'description' => '',
+    ],
+
+    'key_private' => [
+        'label' => 'Private key',
+        'description' => '',
+    ],
+
 ];
