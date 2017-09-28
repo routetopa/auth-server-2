@@ -60,7 +60,7 @@ class OAuth2Controller extends Controller
 
 	function token( Request $request )
 	{
-		$server = App::make( 'oauth2' );
+	    $server = App::make('oauth2');
 		$server->addGrantType(
 			new OAuth2\GrantType\AuthorizationCode( new OAuth2\Storage\Pdo( App::make( 'db' )->getPdo() ) )
 		);
@@ -73,35 +73,78 @@ class OAuth2Controller extends Controller
 		return $bridgedResponse;
 	}
 
+	private function decodeJwt( Request $request ) {
+	    $header = $request->header( "Authorization" );
+        $jwt_access_token = substr( $header, 7 ); // Remove "Bearer " string
+
+        $separator = '.';
+
+        if (2 !== substr_count($jwt_access_token, $separator)) {
+            //throw new \Exception("Incorrect access token format");
+            return json_encode( [ "error" => "Incorrect access token format" ] );
+        }
+
+        list($header, $payload, $signature) = explode($separator, $jwt_access_token);
+
+        $decoded_signature = base64_decode(str_replace(array('-', '_'), array('+', '/'), $signature));
+
+        // The header and payload are signed together
+        $payload_to_verify = utf8_decode($header . $separator . $payload);
+
+        // however you want to load your public key
+        $public_key = file_get_contents( setting( 'key_public' ) );
+
+        // default is SHA256
+        $verified = openssl_verify($payload_to_verify, $decoded_signature, $public_key, OPENSSL_ALGO_SHA256);
+
+        if ($verified !== 1) {
+            //throw new Exception("Cannot verify signature");
+            return json_encode( [ "error" => "Cannot verify signature" ] );
+        }
+
+        return base64_decode($payload);
+    }
+
 	function userinfo( Request $request )
 	{
 		$server = App::make( 'oauth2' );
+		$user_id = null;
 
-		// Do NOT use ::createFromRequest as it does not distinguish between query and post params
-		$bridgedRequest = OAuth2\HttpFoundationBridge\Request::createFromGlobals();
-		$bridgedResponse = new OAuth2\HttpFoundationBridge\Response();
+		if ( setting('jwt_enable' ) ) {
+		    $payload = json_decode( $this->decodeJwt( $request ) );
 
-		if ( $server->verifyResourceRequest( $bridgedRequest, $bridgedResponse ) )
-		{
-			$token = $server->getAccessTokenData( $bridgedRequest );
+		    if ( property_exists( $payload, 'error' ) ) {
+                return Response::json( $payload );
+            }
 
-			$user_id = $token[ 'user_id' ];
-			$user = User::whereUsername( $user_id )->first();
+		    $user_id = $payload->sub;
+        } else {
+            // Do NOT use ::createFromRequest as it does not distinguish between query and post params
+            $bridgedRequest = OAuth2\HttpFoundationBridge\Request::createFromGlobals();
+            $bridgedResponse = new OAuth2\HttpFoundationBridge\Response();
 
-			return Response::json( array(
-				'private' => 'stuff',
-				'email' => $user->email,
-				'user_id' => $token[ 'user_id' ],
-				'client'  => $token[ 'client_id' ],
-				'expires' => $token[ 'expires' ],
-			));
-		}
-		else
-		{
-			return Response::json( array(
-				'error' => 'Unauthorized'
-			), $bridgedResponse->getStatusCode() );
-		}
+            if ( $server->verifyResourceRequest( $bridgedRequest, $bridgedResponse ) )
+            {
+                $token = $server->getAccessTokenData( $bridgedRequest );
+
+                $user_id = $token[ 'user_id' ];
+            }
+            else
+            {
+                return Response::json( [ 'error' => 'Unauthorized' ], $bridgedResponse->getStatusCode() );
+            }
+        }
+
+        $user = User::whereUsername( $user_id )->first();
+
+        return Response::json( [
+            //'private' => 'stuff',
+            'email' => $user->email,
+            'user_id' => $user_id,
+            //'client'  => $token[ 'client_id' ],
+            //'expires' => $token[ 'expires' ],
+        ] );
+
 	}
 
 }
