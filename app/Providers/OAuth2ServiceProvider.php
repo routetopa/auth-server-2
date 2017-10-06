@@ -5,8 +5,11 @@ namespace App\Providers;
 use App;
 use App\User;
 use Illuminate\Support\ServiceProvider;
+use OAuth2\GrantType\AuthorizationCode;
 use OAuth2\GrantType\ClientCredentials;
+use OAuth2\GrantType\RefreshToken;
 use OAuth2\GrantType\UserCredentials;
+use OAuth2\ResponseType\JwtAccessToken;
 use OAuth2\Server;
 use OAuth2\Storage\Pdo;
 
@@ -63,6 +66,7 @@ class OAuth2ServiceProvider extends ServiceProvider
 
             $server->addGrantType( new ClientCredentials( $storage ) );
             $server->addGrantType( new UserCredentials( $storage ) );
+            $server->addGrantType( new RefreshToken( $storage ), ['always_issue_new_refresh_token' => true] );
 
             return $server;
         });
