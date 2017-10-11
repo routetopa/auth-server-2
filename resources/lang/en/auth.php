@@ -40,6 +40,8 @@ return [
 	],
 
 	'logout' => [
+        'meta_title' => 'Logout',
+        'title' => 'Logout',
 		'action_title' => 'Logout',
 		'action_message' => 'Are you sure you want to log out?',
 		'button_logout' => 'Logout',

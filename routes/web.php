@@ -56,6 +56,7 @@ Route::auth();
 |
 */
 Route::group( [ 'middleware' => [ 'auth', 'verified' ] ], function() {
+    Route::get( 'logout', 'Auth\LogoutController@logoutConfirm' );
     Route::get( 'profile', 'ProfileController@edit' );
 	Route::get( '/', 'HomeController@index' )->name( 'home' );
 } );

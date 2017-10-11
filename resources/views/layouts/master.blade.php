@@ -12,6 +12,12 @@
     @if ( Auth::check() )
         <li><a class="subheader">{{ Auth::user()->email  }}</a></li>
         @include( 'layouts.menu-user' )
+        <li>
+            <a href="{{ action( 'Auth\LogoutController@logoutConfirm' ) }}">
+                <i class="material-icons left">exit_to_app</i>
+                @lang( 'auth.logout.action_title' )
+            </a>
+        </li>
 
         @if ( Auth::user()->isAdmin() )
             <li><div class="divider"></div></li>
