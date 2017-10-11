@@ -11,6 +11,9 @@ return [
 		'setting' => 'Settings',
         'status' => 'System info',
 	],
+    'lang' => [
+        'lang' => 'Switch language',
+    ],
 	'user' => [
 		'profile' => 'Your profile',
 	],

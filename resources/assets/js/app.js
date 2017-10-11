@@ -1,7 +1,5 @@
-//window.$ = window.jQuery = require( 'jquery' );
-//require( 'materialize-css' );
-
-// Enable MaterializeCSS Modals
+// Enable MaterializeCSS modules
 $(document).ready(function(){
     $('.modal-trigger').leanModal();
+    $(".button-collapse").sideNav();
 });

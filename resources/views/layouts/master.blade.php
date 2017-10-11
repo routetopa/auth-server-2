@@ -8,16 +8,50 @@
 
 <body>
 
+<ul class="side-nav" id="mobile-menu">
+    @if ( Auth::check() )
+        <li><a class="subheader">{{ Auth::user()->email  }}</a></li>
+        @include( 'layouts.menu-user' )
+
+        @if ( Auth::user()->isAdmin() )
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">@lang( 'menu.admin.administration' )</a></li>
+            @include( 'layouts.menu-admin' )
+        @endif
+
+        <li><div class="divider"></div></li>
+    @endif
+    <li><a class="subheader">@lang( 'menu.lang.lang' )</a></li>
+    @include( 'layouts.menu-lang' )
+</ul>
+
 <header>
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
                 <a href="{{ url( '/' ) }}" class="brand-logo">{{ setting( 'instance_title' ) }}</a>
-                <ul id="nav-mobile" class="right">
+                <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
                     @if ( Auth::check() )
-                        @include( 'layouts.menu-user' )
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown-user">
+                                <i class="material-icons left">face</i>
+                                {{ Auth::user()->email  }}
+                            </a>
+                            <ul id="dropdown-user" class="dropdown-content">
+                                @include( 'layouts.menu-user' )
+                            </ul>
+                        </li>
                         @if ( Auth::user()->isAdmin() )
-                            @include( 'layouts.menu-admin' )
+                            <li>
+                                <a class="dropdown-button" href="#!" data-activates="dropdown-admin">
+                                    <i class="material-icons left">settings</i>
+                                    @lang( 'menu.admin.administration' )
+                                </a>
+                                <ul id="dropdown-admin" class="dropdown-content">
+                                    @include( 'layouts.menu-admin' )
+                                </ul>
+                            </li>
                         @endif
                         <li>
                             <a class="modal-trigger" href="#logout_modal">
@@ -57,13 +91,13 @@
             <div class="col s12">
                 <img src="/img/eu-flag.svg" style="height: 2em;">
             </div>
-            <div class="col s4">
+            <div class="col m4 s12">
                 <p>
                     This project has received funding from <i>European Union's Horizon 2020 research and
                         innovation programme</i> under grant agreement No 645860.
                 </p>
             </div>
-            <div class="col s4 offset-s4">
+            <div class="col m4 offset-m4 s12">
                 <ul class="links-social right-align">
                     <li><a target="_blank" href="http://www.routetopa.eu" title="The ROUTE-TO-PA website"><i class="fa fa-desktop small" aria-hidden="true"></i></a></li>
                     <li><a target="_blank" href="https://www.facebook.com/routetopa" title="Facebook"><i class="fa fa-facebook-square small" aria-hidden="true"></i>

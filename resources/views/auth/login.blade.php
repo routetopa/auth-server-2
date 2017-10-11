@@ -9,7 +9,7 @@
     @include( 'errors.summary' )
 
     @row
-        @col( s7 )
+        @col( s12 m7 )
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">
@@ -53,7 +53,7 @@
             </div>
         @endcol
 
-        @col( s5 )
+        @col( s12 m5 )
         @if ( setting( 'registration_open' ) )
             <div class="card green lighten-4">
                 <div class="card-content">
