@@ -15,6 +15,7 @@ return [
 
     'failed' => 'Nome utente o password non validi.',
     'throttle' => 'Hai effettuato troppi tentativi di accesso. Potrai accedere nuovamente tra :seconds secondi.',
+    'force_reset_v1' => 'In seguito ad alcuni aggiornamenti, è necessario cambiare la tua password.',
 
     'login' => [
 	    'meta_title' => 'Login',

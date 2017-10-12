@@ -15,6 +15,7 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'force_reset_v1' => 'Due to recent changes, we need you to reset your password. Thank you for your patience.',
 
 	'login' => [
 		'meta_title' => 'Login',
