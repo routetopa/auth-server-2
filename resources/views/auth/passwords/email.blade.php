@@ -8,6 +8,13 @@
 
     @include( 'errors.summary' )
 
+    @if (session('status'))
+        <div class="card-panel green lighten-5">
+            <i class="material-icons green-text">info_outline</i><br>
+            {{ session('status') }}
+        </div>
+    @endif
+    
     @row
         @col( s12 )
             <div class="card">
