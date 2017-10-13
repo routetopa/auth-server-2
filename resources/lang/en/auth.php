@@ -15,7 +15,7 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'force_reset_v1' => 'Due to recent changes, we need you to reset your password. Thank you for your patience.',
+    'force_reset_v1' => 'Dear user, we recently adopted a new, more versatile and secure authentication system. Due to this update, we need you to reset your password before your first login. Please follow the instructions below: it will take you very few minutes. Thank you for your patience.',
 
 	'login' => [
 		'meta_title' => 'Login',
@@ -61,14 +61,14 @@ return [
 	    'title' => 'Forgot password',
 	    'meta_title' => 'Forgot password',
 	    'action_title' => 'Reset password',
-	    'action_message' => 'Insert your e-mail here: we will send you an email with a link that you can use to reset your password.',
+	    'action_message' => 'Please insert the e-mail address you registered with: we will send you an email with a link that you can use to reset your password. If you don\'t receive any e-mail from us within minutes, please check your Spam folder.',
     ],
 
     'reset' => [
 	    'title' => 'Reset password',
 	    'meta_title' => 'Reset password',
 	    'action_title' => 'New password',
-	    'action_message' => 'Please insert your e-mail in the form below and choose a new password.',
+	    'action_message' => 'Please insert the e-mail address you registered with in the form below and choose a new password.',
     ],
 
 	'register' => [

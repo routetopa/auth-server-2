@@ -15,7 +15,7 @@ return [
 
     'failed' => 'Nome utente o password non validi.',
     'throttle' => 'Hai effettuato troppi tentativi di accesso. Potrai accedere nuovamente tra :seconds secondi.',
-    'force_reset_v1' => 'In seguito ad alcuni aggiornamenti, è necessario cambiare la tua password.',
+    'force_reset_v1' => 'Abbiamo adottato un nuovo sistema di autenticazione più flessibile e sicuro. A seguito di questo cambiamento, prima di poter accedere devi reimpostare la tua password. Segui le istruzioni qui sotto, sono necessari pochissimi minuti!',
 
     'login' => [
 	    'meta_title' => 'Login',
@@ -58,14 +58,14 @@ return [
 	    'title' => 'Password dimenticata',
 	    'meta_title' => 'Password dimenticata',
 	    'action_title' => 'Reimposta password',
-	    'action_message' => 'Inserisci il tuo indirizzo e-mail: ti invieremo una e-mail contenente un collegamento per reimpostare la tua password.',
+	    'action_message' => 'Inserisci l\'indirizzo e-mail che hai usato in fase di registrazione: ti invieremo una e-mail contenente un collegamento per reimpostare la tua password. Se non ricevi l\'email entro pochi minuti, controlla la tua casella Spam o Posta indesiderata.',
     ],
 
     'reset' => [
 	    'title' => 'Reimposta password',
 	    'meta_title' => 'Reimposta password',
 	    'action_title' => 'Nuova password',
-	    'action_message' => 'Inserisci la tua e-mail e sceli la tua nuova password.',
+	    'action_message' => 'Inserisci l\'e-mail che hai usato in fase di registrazione e scegli la tua nuova password.',
     ],
 
     'register' => [
