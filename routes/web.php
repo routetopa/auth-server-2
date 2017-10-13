@@ -82,4 +82,7 @@ Route::group( [ 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'ad
 
     Route::resource( 'oauth2-client', 'ClientController' );
     Route::resource( 'oauth2-scope', 'ScopeController' );
+
+    Route::get( 'import/users', 'ImportController@importUsers' );
+    Route::post( 'import/users', 'ImportController@importUsersDo' );
 } );

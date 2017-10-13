@@ -109,6 +109,31 @@ Click the *Add* button and fill the form:
 
 You leave other fields blank.
 
+## Importing accounts from previous authentication system
+
+The Authentication Server 2 can import accounts from CSV files having this format:
+
+`email,is_admin,is_verified`
+
+Where:
+  - `email` is the e-mail address to import,
+  - `is_admin` is a boolean value, should be `1` if the user is an administrator, `0` otherwise
+  - `is_verified` is a boolean value, should be `1` if the user email was verified, `0` otherwise
+  
+The following snippet is an example of how you can generate the CSV file from the database table of the
+old Authentication Server:
+
+````sql
+SELECT email, is_admin, is_verified 
+  FROM users 
+  INTO OUTFILE '/tmp/user_export.csv'
+  FIELDS TERMINATED BY ','
+  OPTIONALLY ENCLOSED BY '"'
+  LINES TERMINATED BY '\n';
+````
+
+Once you have your CSV file, login as administrator on the new Authentication Server and go to`/admin/import/users`.
+
 ## License
 
 The software is licensed under MIT License.

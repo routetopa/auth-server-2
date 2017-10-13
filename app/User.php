@@ -63,4 +63,12 @@ class User extends Authenticatable
         return $this->hasMany(FacebookLogin::class);
     }
 
+    /**
+     *
+     */
+    public function setEmailAttribute( $value )
+    {
+        $this->attributes[ 'email' ] = strtolower( $value );
+    }
+
 }
