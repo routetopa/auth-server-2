@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
 class LoginController extends Controller
@@ -39,7 +40,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest')
+            ->except(['logout', 'login_remote']);
     }
 
     /**
@@ -63,6 +65,24 @@ class LoginController extends Controller
 
         // Fallback to standard trait behavior
         return $this->authenticateUsersSendFailedLoginResponse($request);
+    }
+
+    /**
+     * An authentication hook that will work without CSRF protection.
+     * Note that, in order to have this method working, CSRF and Guest
+     * middlewares must be disabled.
+     *
+     * @param Request $request
+     */
+    public function login_remote(Request $request)
+    {
+        $login_result = $this->login($request);
+
+        if (Auth::check() && $request->redirect_success) {
+            return redirect($request->redirect_success);
+        }
+
+        return $login_result;
     }
 
 }

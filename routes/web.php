@@ -43,6 +43,7 @@ Route::group( [ 'prefix' => 'fb' ], function() {
 | new user registration and password reset.
 |
 */
+Route::post( 'login/remote', 'Auth\LoginController@login_remote' );
 Route::get ( 'register/sent', 'Auth\RegisterController@showValidationSent' );
 Route::post( 'register/send', 'Auth\RegisterController@sendValidation' );
 Route::auth();
