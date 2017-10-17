@@ -49,6 +49,7 @@ class EmailVerification extends Notification
 	            . '?email=' . urlencode( $notifiable->email );
 
 	    return (new MailMessage)
+            ->subject( trans( 'notifications.register.subject' ) )
 		    ->line( trans( 'notifications.register.line1' ) )
 		    ->action( trans( 'notifications.register.action_button' ), $link )
 		    ->line( trans( 'notifications.register.line2' ) );

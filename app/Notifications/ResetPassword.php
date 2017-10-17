@@ -16,6 +16,7 @@ class ResetPassword extends LaravelResetPassword
 	public function toMail( $notifiable )
 	{
 		return (new MailMessage)
+            ->subject( trans( 'notifications.reset.subject' ) )
 			->line( trans( 'notifications.reset.line1' ) )
 			->action( trans( 'notifications.reset.action_button' ) , url( 'password/reset', $this->token ) )
 			->line( trans( 'notifications.reset.line2' ) );
