@@ -132,6 +132,46 @@ SELECT email, is_admin, is_verified
   LINES TERMINATED BY '\n';
 ````
 
+You can also use this PHP script:
+
+````php
+<?php
+
+/*
+ * REMEMBER TO PUT THIS SCRIPT IN THE SAME DIRECTORY OF THE OLD AUTHENTICATION SERVER
+ * (where config.prod.php is)
+ */
+
+$out = fopen('php://stdout', 'w');
+
+$config = include('config.prod.php');
+
+$mysqli = new mysqli(
+        $config['db']['hostspec'],
+        $config['db']['username'],
+        $config['db']['password'],
+        $config['db']['dbname']
+);
+
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
+
+$res = $mysqli->query("SELECT * FROM users");
+
+while ($row = $res->fetch_assoc()) {
+        $fields = [
+                $row['email'],
+                $row['is_admin'],
+                $row['is_verified'],
+        ];
+        fputcsv($out, $fields);
+}
+
+fclose($out);
+$res->close();
+````
+
 Once you have your CSV file, login as administrator on the new Authentication Server and go to`/admin/import/users`.
 
 ## License
