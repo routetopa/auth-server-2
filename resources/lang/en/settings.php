@@ -95,4 +95,21 @@ return [
         'description' => '',
     ],
 
+    'key_generate' => 'Generate keys',
+
+    /*
+    |--------------------------------------------------------------------------
+    | KEYS SUBSECTION
+    |--------------------------------------------------------------------------
+    */
+
+    'keys' => [
+        'title' => 'Key generation',
+        'meta_title' => 'Key generation',
+
+        'description' => 'The Authentication Server can generate a pair of keys to use with JWT Token. Generated keys will be automatically set as active keys in the Settings panel.',
+
+        'action' => 'Generate',
+    ],
+
 ];

@@ -71,6 +71,11 @@
             ->label( trans( 'settings.key_private.label' ) )
             ->value( $settings->get( 'key_private' )->value ) !!}
         @endcol
+        @col( s12 )
+            <a href="{{ action( 'Admin\SettingController@keys' ) }}">
+                @lang( 'settings.key_generate' )
+            </a>
+        @endcol
     @endrow
 
     @row

@@ -71,6 +71,8 @@ Route::group( [ 'middleware' => [ 'auth', 'verified' ] ], function() {
 |
 */
 Route::group( [ 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin' ], function() {
+    Route::get( 'setting/keys', 'SettingController@keys' );
+    Route::post( 'setting/keys', 'SettingController@keys_generate' );
     Route::get( 'setting', 'SettingController@edit' );
     Route::put( 'setting', 'SettingController@update' );
 
