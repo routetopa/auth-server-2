@@ -92,7 +92,7 @@ class SettingController extends Controller
         $public_setting->save();
 
         $private_setting = Setting::find( 'key_private' );
-        $private_setting->value = storage_path( "app/$public_name" );
+        $private_setting->value = storage_path( "app/$private_name" );
         $private_setting->save();
 
         // Redirect to settings
