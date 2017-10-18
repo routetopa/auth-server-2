@@ -122,18 +122,26 @@ class FacebookController extends Controller
         $facebook_login = FacebookLogin::where('fb_mail', $fb_mail)->first();
 
         if ($facebook_login) {
+            // The user previously logged in using Facebook
             $user = $facebook_login->user;
         } else {
-            $user = new User;
-            $user->first_name = $fb_first_name;
-            $user->last_name = $fb_last_name;
-            $user->email = $fb_mail;
-            $user->password = '';
-            $user->roles = '';
-            $user->is_banned = false;
-            $user->verified = false;
-            $user->save();
+            // Check if user is already registered
+            $user = User::where('email', $fb_mail)->first();
 
+            if ( ! $user ) {
+                // Email not present, create a user
+                $user = new User;
+                $user->first_name = $fb_first_name;
+                $user->last_name = $fb_last_name;
+                $user->email = $fb_mail;
+                $user->password = '';
+                $user->roles = '';
+                $user->is_banned = false;
+                $user->verified = false;
+                $user->save();
+            }
+
+            // Associate Facebook login information to local user
             $facebook_login = new FacebookLogin;
             $facebook_login->fb_id = $fb_id;
             $facebook_login->fb_mail = $fb_mail;
