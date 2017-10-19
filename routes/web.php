@@ -8,6 +8,21 @@ Route::post( 'lang/{lang?}', function( $lang = null ) {
 
 /*
 |------------------------------------------------------------------------------
+| Installation routes
+|------------------------------------------------------------------------------
+|
+|
+|
+*/
+Route::group( [ 'prefix' => 'install' ], function() {
+    Route::get( '/installed', 'InstallController@already_installed' );
+    Route::get( '/done', 'InstallController@installed' );
+    Route::get( '/', 'InstallController@index' );
+    Route::post( '/', 'InstallController@create_admin_do' );
+});
+
+/*
+|------------------------------------------------------------------------------
 | OAuth routes
 |------------------------------------------------------------------------------
 |
