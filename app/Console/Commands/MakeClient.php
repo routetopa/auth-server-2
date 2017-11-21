@@ -71,7 +71,7 @@ class MakeClient extends Command
             [
                 'client_id' => "required|string|unique:{$clients_table}",
                 'client_secret' => 'nullable|string',
-                'redirect_uri' => 'nullable|url',
+                'redirect_uri' => 'nullable',
                 'grant_types' => 'string',
                 'scope' => 'string',
                 'user_id' => 'nullable|string',
