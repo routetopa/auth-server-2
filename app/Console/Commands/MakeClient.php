@@ -39,7 +39,7 @@ class MakeClient extends Command
      */
     public function handle()
     {
-        if (!$this->validate()) return;
+        $this->validate();
 
         $client = new Client;
         $client->client_id = $this->argument('client_id');
