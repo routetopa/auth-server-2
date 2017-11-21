@@ -13,7 +13,11 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\MakeClient::class,
+        \App\Console\Commands\MakePolicy::class,
+        \App\Console\Commands\MakeScope::class,
+        \App\Console\Commands\MakeUser::class,
+        \App\Console\Commands\UpdateSetting::class,
     ];
 
     /**
