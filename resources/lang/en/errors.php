@@ -12,6 +12,11 @@ return [
     |
     */
 
+    'meta_title' => 'Error',
+    'title' => 'Error',
+    'before_errors' => 'Sorry, we have encountered an error.',
+    'after_errors' => '',
+
     'csrf' => [
         'meta_title' => 'Request expired',
         'title' => 'Request expired',

@@ -6,6 +6,8 @@ Route::post( 'lang/{lang?}', function( $lang = null ) {
 	return redirect( $uri );
 } );
 
+Route::get( 'error', 'MessageController@error' )->name( 'error' );
+
 /*
 |------------------------------------------------------------------------------
 | Installation routes
