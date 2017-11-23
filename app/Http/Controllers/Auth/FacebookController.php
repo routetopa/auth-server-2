@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 class FacebookController extends Controller
 {
 
+    const ERR_NO_FB_MAIL = 'facebook.missing_email';
+
     protected function getFB() {
         return new \Facebook\Facebook([
             'app_id' => Setting::retrieve('fb_app_id'),
@@ -116,6 +118,13 @@ class FacebookController extends Controller
         $fb_mail = $fb_user->getEmail();
         $fb_first_name = $fb_user->getFirstName();
         $fb_last_name = $fb_user->getLastName();
+
+        // Check if Facebook returnes a valid e-mail address
+        if ( ! $fb_mail ) {
+            return redirect()
+                ->route( 'error' )
+                ->withErrorCode( self::ERR_NO_FB_MAIL );
+        }
 
         // Check if user exists
         $user = null;
