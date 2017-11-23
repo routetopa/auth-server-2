@@ -36,7 +36,12 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->username }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>
+                            @if ( $user->facebook->first() )
+                                <div class="chip">facebook</div>
+                            @endif
+                            {{ $user->email }}
+                        </td>
                         <td>
                         @foreach( explode( ' ', $user->roles ) as $role )
                             @if ( $role )
