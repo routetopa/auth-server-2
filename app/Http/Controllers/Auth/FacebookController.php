@@ -143,14 +143,14 @@ class FacebookController extends Controller
         }
 
         if ( ! $facebook_login ) {
-            // If user and/or facebook_login have just been created
-            // associate Facebook login information to local user
+            // Create FacebookLogin if it does not exist
             $facebook_login = new FacebookLogin;
             $facebook_login->fb_id = $fb_id;
             $facebook_login->fb_mail = $fb_mail;
         }
 
-        if ( ! $user->facebook ) {
+        if ( $user->facebook->count() == 0 ) {
+            // Associate User and FacebookLogin if at least one of the two was just created
             $user->facebook()->save($facebook_login);
         }
 
