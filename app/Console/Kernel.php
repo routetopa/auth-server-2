@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\MakeClient::class,
+        \App\Console\Commands\MakeJwtKeys::class,
         \App\Console\Commands\MakePolicy::class,
         \App\Console\Commands\MakeScope::class,
         \App\Console\Commands\MakeUser::class,
