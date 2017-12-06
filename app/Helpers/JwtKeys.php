@@ -53,11 +53,11 @@ class JwtKeys
 
         // Save keys paths to Settings
         $public_setting = Setting::find( 'key_public' );
-        $public_setting->value =  storage_path( "app/{$filenames[$public_name_key]}}" );
+        $public_setting->value =  storage_path( "app/{$filenames[$public_name_key]}" );
         $result = $public_setting->save();
 
         $private_setting = Setting::find( 'key_private' );
-        $private_setting->value = storage_path( "app/{$filenames[$private_name_key]}}" );
+        $private_setting->value = storage_path( "app/{$filenames[$private_name_key]}" );
         $result &= $private_setting->save();
 
         // Enable JWT in settings
