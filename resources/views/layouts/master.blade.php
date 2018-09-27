@@ -95,7 +95,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <img src="/img/eu-flag.svg" style="height: 2em;">
+                <img src="{{ url('img/eu-flag.svg') }}" style="height: 2em;">
             </div>
             <div class="col m4 s12">
                 <p>
